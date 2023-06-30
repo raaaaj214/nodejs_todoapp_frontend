@@ -1,0 +1,104 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+.home
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+    align-items: center;
+}
+.task-form
+{
+    background: rgb(205, 197, 197);
+    margin-top: 5rem;
+    outline: 1px solid black;
+    padding: 2rem 10rem;
+    
+}
+.task-form>form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.task-form input
+{
+    padding: .6rem 8rem;
+    font-size: 1rem;
+    border: 1px solid grey;
+}
+.task-form button
+{
+    margin: 2rem;
+    padding: 1rem 4rem;
+    background: black;
+    color: white;
+    font-weight: 700;
+}
+.task-form button:hover
+{
+    background: rgb(43, 42, 42);
+}
+.task-form button:active
+{
+    background: white;
+    color: black;
+}
+.tasks
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.task-div
+{
+    padding: 0 2rem;
+    width: 40vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap : 1rem;
+    outline: 1px solid lightcoral;
+    background: lightpink;
+}
+.task-info>h4
+{
+    font-weight: 900;
+    font-size: 1.3rem;
+}
+.task-info>h5{
+    font-weight: 400;
+    font-style: italic;
+}
+.task-func
+{
+    display: flex;
+    gap: 1rem;
+}
+.task-func button
+{
+    background: black;
+    color: white;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    padding: .7rem;
+}
+.task-func button:hover
+{
+    background: rgb(52, 50, 50);
+}
+.task-func button:active
+{
+    background: white;
+    color: black;
+}

@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar
+{
+    background: black;
+    height: 6vh;
+    width: 100vw;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+.navbar-right{
+    display: flex;
+    width: 15%;
+    justify-content: space-between;
+}
+.navbar button:disabled
+{
+    cursor: not-allowed;
+}

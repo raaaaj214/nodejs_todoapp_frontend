@@ -1,0 +1,49 @@
+.landingPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: grey;
+    
+}
+
+.lp-box{
+    background: whitesmoke;
+    width: fit-content;
+    padding: 5rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 1.1rem;
+}
+.lp-box>form
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+.lp-box input{
+    width: 20rem;
+    height: 1.6rem;
+}
+.lp-form-btn
+{
+    padding-top: 3rem;
+}
+.lp-form-btn>button
+{
+    padding: .3rem 9rem;
+    background: linear-gradient(blue , rgb(49, 49, 195));;
+    border: none;
+    font-weight: 600;
+    color: white;
+}
+.lp-form-btn>button:disabled
+{
+    cursor: not-allowed;
+}
