@@ -9,6 +9,8 @@ import axios from 'axios';
 import { context } from '.';
 import Profile from './components/Profile';
 import Home from './components/Home';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -30,6 +32,7 @@ function App() {
   return (
     <>
     <Navbar/>
+    <ToastContainer/>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/login' element={<LoginPage/>}/>

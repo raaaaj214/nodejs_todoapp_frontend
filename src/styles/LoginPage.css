@@ -2,8 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background: grey;
+    height: 90vh;
+    background: black;
+    color: black;
     
 }
 
@@ -46,4 +47,14 @@
 .lp-form-btn>button:disabled
 {
     cursor: not-allowed;
+}
+.lp-form-btn2 a
+{
+    color: blue;
+    text-decoration: none;
+    font-weight: 700;
+}
+.lp-form-btn2 a:hover
+{
+    color: navy;
 }

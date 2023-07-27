@@ -1,6 +1,6 @@
 import {React, useContext} from 'react'
 import "../styles/Navbar.css"
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { context } from '../index';
 import axios from 'axios';
 
@@ -27,10 +27,10 @@ function Navbar() {
             <div className="app-name">TODO APP</div>
         </div>
         <div className="navbar-right">
-            <div className="home"  ><Link to="/">HOME</Link></div>
-            <div className="profile"><Link to="/profile">PROFILE</Link></div>
+            <div className="home"  ><NavLink to="/">HOME</NavLink></div>
+            <div className="profile"><NavLink to="/profile">PROFILE</NavLink></div>
             {
-              isAuthenticated ? <button className='logout-btn' onClick={clickHandler} disabled={loading}>Log Out</button> : <div className="login"><Link to="/login">LOGIN</Link></div>
+              isAuthenticated ? <button className='logout-btn' onClick={clickHandler} disabled={loading}>LOGOUT</button> : <NavLink to="/login">LOGIN</NavLink>
             }
         </div>
     </div>

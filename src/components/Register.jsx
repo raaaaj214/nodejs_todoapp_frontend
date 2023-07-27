@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import "../styles/Register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { context } from "../index.js";
+import { toast } from 'react-toastify';
+
 
 
 function Register() {
@@ -11,9 +13,10 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const nav = useNavigate();
 
   const submitHandler = async(event) => {
-    console.log(loading)
+
     event.preventDefault();
     setLoading(true);
     console.log(name, email, password);
@@ -31,9 +34,12 @@ function Register() {
           withCredentials: true,
         }
       );
-      console.log(response)
-      console.log("cookies")
+      if(response.data.success === true)
+      {
+        nav("/login")
+      }
       setLoading(false);
+      toast.success(response.data.message)
   };
 
   return (

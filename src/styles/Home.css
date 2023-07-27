@@ -3,6 +3,10 @@
     margin: 0;
     padding: 0;
 }
+html{
+    background: rgb(0, 0, 0);
+    color: white;
+}
 .home
 {
     display: flex;
@@ -10,6 +14,7 @@
     justify-content: center;
     gap: 5rem;
     align-items: center;
+    background: black;
 }
 .task-form
 {

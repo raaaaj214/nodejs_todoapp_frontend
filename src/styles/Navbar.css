@@ -14,6 +14,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
+    outline: 1px solid white;
 }
 .navbar-right{
     display: flex;
@@ -23,4 +24,32 @@
 .navbar button:disabled
 {
     cursor: not-allowed;
+}
+.navbar-right a
+{
+    text-decoration: none;
+    color: white;
+}
+.navbar-right a:hover
+{
+    color: gray;
+}
+
+.active
+{
+    font-weight: bolder;
+    font-size: 1.1rem;
+}
+
+.logout-btn
+{
+    background: none;
+    border: none;
+    color: white;
+
+    
+}
+.logout-btn:hover
+{
+    color: gray;
 }

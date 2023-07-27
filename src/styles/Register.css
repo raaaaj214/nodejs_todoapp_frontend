@@ -2,8 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background: grey;
+    background: black;
+    height: 90vh;
+    color: black;
     
 }
 
@@ -45,4 +46,14 @@
 }
 .rg-form-btn>button:disabled{
     cursor:not-allowed;
+}
+.rg-form-btn2 a
+{
+    text-decoration: none;
+    color: blue;
+    font-weight: 700;
+}
+.rg-form-btn2 a:hover
+{
+    color: navy;
 }

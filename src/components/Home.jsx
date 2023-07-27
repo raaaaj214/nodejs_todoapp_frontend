@@ -4,6 +4,8 @@ import { context } from '../index'
 import axios from 'axios';
 import useLocalStorage from '../hooks/useLocalStorage';
 import TodoItem from './TodoItem';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
     const {isAuthenticated} = useContext(context);
@@ -11,12 +13,19 @@ function Home() {
   const [description , setDescription] = useState("");
   const [task , setTask] = useState([]);
   const [added , setAdded] = useState(false);
+  const nav = useNavigate()
 
-
+  useEffect(() => {
+    if(isAuthenticated === false)
+  {
+    console.log(isAuthenticated)
+    nav("/login")
+  }
+  })
+  
 
   const clickHandler = async(id) => {
       const res = await axios.delete(`https://nodejs-todoapp-9lze.onrender.com/tasks/${id}`)
-      console.log(res)
       getTask();
       
   }
@@ -27,7 +36,7 @@ function Home() {
     withCredentials : true,
   })
   setTask(response.data.allTasks)
-  console.log("task",task)
+  toast.success(response.data.message)
 }
     useEffect(()=>{
       async function f()
@@ -38,7 +47,7 @@ function Home() {
       setTask(response.data.allTasks)
     }
     f();
-    console.log("what")
+
     },[added])
 
     const submitHandler = async (event) => {
@@ -58,6 +67,7 @@ function Home() {
         );
   
         console.log(response)
+        toast.success(response.data.message)
         setAdded(added => !added)
       
     };
@@ -69,6 +79,7 @@ function Home() {
             withCredentials : true,
           })
           console.log(response.data.task)
+          toast.success(response.data.message)
           setAdded(added => !added)
       } catch (error) {
         console.log(error)
@@ -88,7 +99,7 @@ function Home() {
     {task &&  task.map((val)=> {
       return <TodoItem title={val.title} description={val.description} isCompleted={val.isCompleted} id={val._id} key={val._id} checkHandler={checkHandler} clickHandler={clickHandler}/>
     })}
-    </div> : <h1>Login First</h1>
+    </div> : <div className="home"><h1>Login First</h1></div>
    
   
 }

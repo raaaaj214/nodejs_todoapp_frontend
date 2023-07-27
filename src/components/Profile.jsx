@@ -1,10 +1,21 @@
 import { useContext, useEffect} from 'react';
 import axios from 'axios';
 import { context } from '../index';
+import "../styles/Profile.css"
+import { useNavigate } from 'react-router-dom';
 
 
 function Profile() {
     const {setIsAuthenticated, setUser, User, isAuthenticated} = useContext(context);
+    const nav = useNavigate()
+
+  useEffect(() => {
+    if(isAuthenticated === false)
+    {
+      nav("/login")
+    }
+  })
+
     useEffect(() => {
         axios
         .get("https://nodejs-todoapp-9lze.onrender.com/users/me", {
@@ -22,15 +33,14 @@ function Profile() {
     }, []);
 
   return isAuthenticated === true ? 
-    <div className='profile'>
+    <div className='Profile'>
       <div className="profile-div">
-        hello world 
         <div className="name">
-            NAME : 
+            NAME : &nbsp;
             {User ? User.name : "username not found"}
         </div>
         <div className="email">
-            EMAIL :
+            EMAIL : &nbsp;
             {User ? User.email: "email not found"}
         </div>
       </div>

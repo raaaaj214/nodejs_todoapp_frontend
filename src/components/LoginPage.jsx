@@ -3,6 +3,7 @@ import "../styles/LoginPage.css"
 import { Link, Navigate, Route, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { context } from '../index.js';
+import { toast } from 'react-toastify';
 
 
 
@@ -17,12 +18,15 @@ function LoginPage() {
 
   useEffect(()=>{
     if(isAuthenticated === true)
+    {
     navigate("/")
+    }
   }, [isAuthenticated])
     
   
   const submitHandler = async (event) =>{
-    event.preventDefault();
+    try {
+      event.preventDefault();
     setLoading(true);
     const reponse = await axios.post("https://nodejs-todoapp-9lze.onrender.com/users/login",{
       email,
@@ -34,7 +38,19 @@ function LoginPage() {
     const {success} = reponse.data;
     setIsAuthenticated(success)
     setLoading(false);
-
+    if(reponse.data.success === true)
+    {
+      toast.success(reponse.data.messsage)
+    }
+    else
+    {
+      toast.error(reponse.data.messsage)
+    }
+    
+    } catch (error) {
+      toast.error(error)
+    }
+    
   }
 
   return (
@@ -45,7 +61,6 @@ function LoginPage() {
         <input type="email" name="email" id="email" placeholder='Enter email address' value={email} onChange={(event) => {setEmail(event.target.value)}}/>
         <input type="password" name="password" id="password" placeholder='Enter Password' value={password} onChange={(event) => {setPassword(event.target.value)}}/>
         <div className="lp-form-btn">
-          <h1> hello : {JSON.stringify(isAuthenticated)}</h1>
         <button disabled={loading} type='submit'>Log In</button>
         </div>
           <div className="h3">OR</div>

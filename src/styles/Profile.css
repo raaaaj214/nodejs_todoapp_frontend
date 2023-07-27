@@ -1,0 +1,14 @@
+.Profile
+{
+  display: grid;
+  place-items: center;
+  height: 90vh;
+}
+.profile-div
+{
+    background: grey;
+    padding: 2rem 4rem;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
